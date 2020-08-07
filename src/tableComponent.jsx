@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
-import { getMovies, deleteMovie } from "./fakeMovieService";
-
+import { getMovies } from "./fakeMovieService";
+import EachRow from "./eachRow";
 class TableComponent extends Component {
     state = { 
         movies: getMovies()
     }
 
     renderMovies() {
-            return this.state.movies.map((movie,index) => (
-                <tr key={movie._id}>
-                    <td>{movie.title}</td>
-                    <td>{movie.genre.name}</td>
-                    <td>{movie.numberInStock}</td>
-                    <td>{movie.dailyRentalRate}</td>
-                    <td>
-                        <button className="btn btn-danger sm" onClick={() => {
-                            this.deleteMovie(movie._id);
-                        }}>Delete</button>
-                    </td>
-                </tr>
+            return this.state.movies.map((movie, index) => (
+                <EachRow key={movie._id} movie={movie} deleteMovie={this.deleteMovie}/>
             )); 
     }
 
@@ -44,6 +34,7 @@ class TableComponent extends Component {
                             <th>Genre</th>
                             <th>Stock</th>
                             <th>Rate</th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>

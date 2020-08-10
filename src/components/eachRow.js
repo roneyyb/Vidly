@@ -5,7 +5,7 @@ import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 class EachRow extends Component {
     state = {
         liked: false,
-    };
+    }; 
 
     render() {
         const { movie } = this.props;

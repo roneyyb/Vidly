@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faHeart, faHeartBroken} from "@fortawesome/free-solid-svg-icons";
+import React, {Component} from "react";
 
 import {paginate} from "./utils";
-import _ from 'lodash';
+import _ from "lodash";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 
@@ -16,7 +18,7 @@ class TableComponent extends Component {
             content: (movie) => (
                 <button
                     onClick={() => {
-                        likeMovie(movie._id);
+                        this.props.likeMovie(movie._id);
                     }}
                     className="btn sm"
                 >

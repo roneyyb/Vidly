@@ -2,6 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const EachRow = (props) => {
   const { movie, likeMovie, deleteMovie, tableHeaderList } = props;
@@ -10,7 +11,7 @@ const EachRow = (props) => {
       {/* {tableHeaderList.map((column) => (
                 <td>{column.path || column.content}</td>
             ))} */}
-      <td>{movie.title}</td>
+      <td>{<Link to={`/movies/${movie._id}`}>{movie.title}</Link>}</td>
       <td>{movie.genre.name}</td>
       <td>{movie.numberInStock}</td>
       <td>{movie.dailyRentalRate}</td>
